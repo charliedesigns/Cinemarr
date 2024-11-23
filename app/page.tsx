@@ -65,8 +65,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log("API Base URL:", process.env.NEXT_PUBLIC_API_BASE_URL);
-    console.log("API Key:", process.env.NEXT_PUBLIC_API);
     fetchTrending();
     fetchGOAT();
     fetchPopularPeople();
