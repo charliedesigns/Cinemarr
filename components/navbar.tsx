@@ -9,7 +9,7 @@ const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const router = useRouter();
 
-    const handleSearch = (e) => {
+    const handleSearch = (e:any) => {
         e.preventDefault();
         if (searchQuery.trim()) {
             router.push(`/search?query=${searchQuery}`);

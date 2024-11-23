@@ -13,9 +13,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
 
 export default function Home() {
-  const [movies, setMovies] = useState<{ id: number; title: string; backdrop_path: string; release_date: string; rating: number }[]>([]);
-  const [goat, setGoat] = useState<{ id: number; title: string }[]>([]);
-  const [people, setPeople] = useState<{ id: number; name: string }[]>([]);
+  const [movies, setMovies] = useState<{ id: number; title: string; backdrop_path: string; release_date: string; rating: number; poster_path: string }[]>([]);
+  const [goat, setGoat] = useState<{ id: number; title: string; poster_path: string }[]>([]);
+  const [people, setPeople] = useState<{ id: number; name: string; profile_path: string }[]>([]);
   const [favorites, setFavorites] = useState<{ id: number; title: string; poster_path: string }[]>([]);
 
   const fetchTrending = () => {

@@ -23,11 +23,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 
 export default function Page({ params }: { params: { slug: string } }) {
-  const [item, setItem] = useState<any>(null);
-  const [credits, setCredits] = useState<
-    { id: number; name: string; profile_path: string }[]
-  >([]);
-  const [watchProviders, setWatchProviders] = useState<any[]>([]);
+  const [item, setItem] = useState<{ id: number; title: string; poster_path: string; vote_average: number; overview: string; adult: boolean; runtime: number; release_date: string } | null>(null);
+  const [credits, setCredits] = useState<{ id: number; name: string; profile_path: string }[]>([]);
+  const [watchProviders, setWatchProviders] = useState<{ provider_id: number; provider_name: string; logo_path: string }[]>([]);
   const [trailer, setTrailer] = useState<{ key: string } | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [director, setDirector] = useState<string | null>(null);
@@ -113,13 +111,15 @@ export default function Page({ params }: { params: { slug: string } }) {
     const storedFavorites = localStorage.getItem("favorites");
     let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
     if (isFavorite) {
-      favorites = favorites.filter((movie: any) => movie.id !== item.id);
+      favorites = favorites.filter((movie: any) => item && movie.id !== item.id);
     } else {
-      favorites.push({
-        id: item.id,
-        title: item.title,
-        poster_path: item.poster_path,
-      });
+      if (item) {
+        favorites.push({
+          id: item.id,
+          title: item.title,
+          poster_path: item.poster_path,
+        });
+      }
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
     setIsFavorite(!isFavorite);
