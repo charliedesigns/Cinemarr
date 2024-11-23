@@ -1,6 +1,6 @@
 
 ![Banner](https://github.com/user-attachments/assets/9d7439a7-c85e-43b7-b056-f67382a6b774)
-[# Cinemarr - Fast, Clutter Free Movie Browser](https://cinemarr.vercel.app/)
+# [Cinemarr - Fast, Clutter Free Movie Browser](https://cinemarr.vercel.app/)
 ### Cinemarr is built using TMDB Database and allows for quick, clutter free browsing of movies.
 
 ## Features
