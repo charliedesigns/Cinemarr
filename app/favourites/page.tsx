@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Trash2 } from 'lucide-react'; // Import Lucide UI icons
+import { Button } from '@/components/ui/button';
 
 export default function FavouritesPage() {
   const [favourites, setFavourites] = useState<any[]>([]);
@@ -57,7 +59,9 @@ export default function FavouritesPage() {
                   style={{ objectFit: "cover", height: "300px" }}
                 />
               </Link>
-              <button onClick={() => removeFavorite(movie.id)}>Remove</button>
+              <button onClick={() => removeFavorite(movie.id)}>
+                <Trash2 className="w-5 h-5" /> {/* Use Trash2 icon */}
+              </button>
             </CarouselItem>
           ))}
         </CarouselContent>

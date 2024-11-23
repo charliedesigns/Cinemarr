@@ -8,9 +8,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Skeleton } from "@/components/ui/skeleton";
-
-
 import Link from "next/link";
+import { Star, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [movies, setMovies] = useState<{ id: number; title: string; backdrop_path: string; release_date: string; rating: number; poster_path: string }[]>([]);
@@ -276,7 +276,9 @@ export default function Home() {
                         style={{ objectFit: "cover", height: "300px" }}
                       />
                     </Link>
-                    <button onClick={() => removeFavorite(movie.id)}>Remove</button>
+                    <Button onClick={() => removeFavorite(movie.id)}>
+                      <Trash2 className="w-5 h-5" /> 
+                    </Button>
                   </CarouselItem>
                 ))}
               </CarouselContent>

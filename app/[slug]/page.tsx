@@ -21,6 +21,7 @@ import {
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
+import { Heart, Film } from 'lucide-react';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const [item, setItem] = useState<{ id: number; title: string; poster_path: string; vote_average: number; overview: string; adult: boolean; runtime: number; release_date: string } | null>(null);
@@ -29,8 +30,6 @@ export default function Page({ params }: { params: { slug: string } }) {
   const [trailer, setTrailer] = useState<{ key: string } | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [director, setDirector] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
 
   const fetchDetails = () => {
     const url = `https://api.themoviedb.org/3/movie/${params.slug}?language=en-US`;
@@ -213,7 +212,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             </div>
             <div className="flex flex-row gap-2">
               <Button className="text-base" onClick={toggleFavorite}>
-                {isFavorite ? "❤️" : "♡"}
+                {isFavorite ? <Heart className="h-5 w-5 fill-current" /> : <Heart className="h-5 w-5" />}
               </Button>
               <Link
                 href={
@@ -224,7 +223,9 @@ export default function Page({ params }: { params: { slug: string } }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="text-base">🎬</Button>
+                <Button className="text-base">
+                  <Film className="h-5 w-5" />
+                </Button>
               </Link>
               <Dialog>
                 <DialogTrigger>

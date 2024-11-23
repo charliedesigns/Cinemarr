@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Input } from './ui/input';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Search } from 'lucide-react';
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -34,7 +35,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex-grow"></div>
                 <form onSubmit={handleSearch} className="flex justify-end items-center">
-                    <span role="img" aria-label="search" className="mr-2">🔍</span>
+                    <Search className="mr-2 h-5 w-5" />
                     <Input 
                         type="text" 
                         placeholder="Search for movies..." 
